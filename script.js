@@ -18,13 +18,9 @@ async function generatePDF() {
     let userName = 'Nome não disponível';
 
     if (clientInfoDiv) {
-        // Assume que o nome do cliente está no formato "Bem Vindo, Nome!"
-        // Vamos extrair apenas o nome
+        // Obtém o texto do elemento
         const clientText = clientInfoDiv.textContent.trim();
-        const nameMatch = clientText.match(/Bem Vindo,\s*([^\s!]+)/);
-        if (nameMatch) {
-            userName = nameMatch[1];
-        }
+       
     }
 
     doc.setFontSize(16);

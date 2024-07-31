@@ -5,10 +5,7 @@
     <title>Página Principal</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Hepta+Slab:400,700|Lato:400,700&display=swap" rel="stylesheet">
     <style>
@@ -50,18 +47,17 @@
         }
 
         .client-info {
-            font-size: 0.9em; /* Tamanho pequeno e discreto */
-            color: red; /* Cor vermelha */
-            
+            font-size: 0.9em;
+            color: red;
             position: absolute;
-            left: 20px; /* Distância do lado direito */
-            top: 50%; /* Centraliza verticalmente */
-            transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
         }
-        
+
         /* Estilo para o conteúdo principal */
         .main-content {
-            margin-left: 250px; /* Espaço para a barra lateral */
+            margin-left: 250px;
             padding: 20px;
         }
 
@@ -83,7 +79,6 @@
 
     <!-- Barra lateral -->
     <div class="sidebar">
-       
         <a href="bebidas.html">Bebida</a>
         <a href="dados.html">Dados Pessoais</a>
         <a href="hamburgueres.html">Hamburgueres</a>
@@ -140,7 +135,7 @@
                         <span>Total</span>
                         <span>R$ --</span>
                     </div>
-                    <div class="cart--finalizar"  onclick="generatePDF()">Finalizar a compra</div>
+                    <div class="cart--finalizar" onclick="generatePDF()">Finalizar a compra</div>
                 </div>
             </div>
         </aside>
@@ -180,13 +175,14 @@
     </div>
 
     <script type="text/javascript">
-        // Recupera o nome do cliente do localStorage
-        var clientName = localStorage.getItem('clientName');
-        if (clientName) {
-            document.getElementById('clientInfo').textContent = 'Bem-vindo, ' + clientName + '!';
-        } else {
-            document.getElementById('clientInfo').textContent = 'Bem-vindo, visitante!';
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var clientName = localStorage.getItem('clientName');
+            if (clientName) {
+                document.getElementById('clientInfo').textContent = 'Bem-vindo, ' + clientName + '!';
+            } else {
+                document.getElementById('clientInfo').textContent = 'Bem-vindo, visitante!';
+            }
+        });
     </script>
     <script type="text/javascript" src="pizzas.js"></script>
     <script type="text/javascript" src="script.js"></script>
