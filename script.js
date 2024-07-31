@@ -13,18 +13,12 @@ async function generatePDF() {
     doc.setFontSize(22);
     doc.text('Resumo da Compra', 14, 20);
 
-    // Adiciona o nome do cliente ao PDF
-    const clientInfoDiv = document.getElementById('clientInfo');
-    let userName = 'Nome não disponível';
-
-    if (clientInfoDiv) {
-        // Obtém o texto do elemento
-        const clientText = clientInfoDiv.textContent.trim();
-       
-    }
+    // Obtém o nome do cliente da div
+    const clientInfoElement = document.getElementById('clientInfo');
+    const clientName = clientInfoElement ? clientInfoElement.textContent.replace('Bem-vindo, ', '').trim() : 'Não disponível';
 
     doc.setFontSize(16);
-    doc.text(`Nome do Cliente: ${userName}`, 14, 30);
+    doc.text(`Nome: ${clientName}`, 14, 30);
 
     // Adiciona um cabeçalho para a tabela
     doc.setFontSize(16);
@@ -114,13 +108,14 @@ async function generatePDF() {
 
     doc.save('resumo-compra.pdf');
 
-    c('aside').classList.remove('show');
-    c('aside').style.left = '100vw';
+    document.querySelector('aside').classList.remove('show');
+    document.querySelector('aside').style.left = '100vw';
     cart = [];
     updateCart();
 
     alert('Seu pedido foi realizado com sucesso!');
 }
+
 
 
 // Listagem das pizzas
